@@ -34,3 +34,11 @@ resource "aws_lambda_function" "hello_world" {
 output "aws_instance_type" {
   value = aws_instance.web_app.instance_type
 }
+
+
+resource "aws_ec2_host" "test" {
+  instance_type     = "t3.micro"
+  availability_zone = "us-east-2"
+  host_recovery     = "on"
+  auto_placement    = "on"
+}
