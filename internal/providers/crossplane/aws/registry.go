@@ -76,7 +76,7 @@ var ResourceRegistry []*schema.RegistryItem = []*schema.RegistryItem{
 	// getMQBrokerRegistryItem(),
 	// getMWAAEnvironmentRegistryItem(),
 	// getNATGatewayRegistryItem(),
-	// getRDSClusterRegistryItem(),
+	getRDSClusterRegistryItem(),
 	// getRDSClusterInstanceRegistryItem(),
 	// getRedshiftClusterRegistryItem(),
 	// getRoute53HealthCheck(),

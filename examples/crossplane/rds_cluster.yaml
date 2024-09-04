@@ -1,0 +1,26 @@
+apiVersion: rds.aws.upbound.io/v1beta1
+kind: Cluster
+metadata:
+  annotations:
+    meta.upbound.io/example-id: rds/v1beta1/cluster
+  name: example
+spec:
+  forProvider:
+    autoGeneratePassword: true
+    dbClusterParameterGroupNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example-ci-cluster
+    dbInstanceParameterGroupNameSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example-ci-cluster-instance
+    engine: aurora-postgresql
+    masterPasswordSecretRef:
+      key: password
+      name: sample-cluster-password
+      namespace: upbound-system
+    masterUsername: cpadmin
+    region: us-west-1
+    skipFinalSnapshot: true
+  writeConnectionSecretToRef:
+    name: sample-rds-cluster-secret
+    namespace: upbound-system
