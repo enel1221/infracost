@@ -1,0 +1,26 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Instance
+metadata:
+  name: crossplane-example-ec2
+spec:
+  forProvider:
+    region: us-east-1
+    instanceType: "t3.micro"
+    ami: ami-1234
+    monitoring: false
+    subnetId: subnet-1234
+    vpcSecurityGroupIds: 
+      - sg-1234
+    ebsBlockDevice:
+      - deviceName: /dev/xvda
+        volumeSize: 30
+        volumeType: gp2
+        deleteOnTermination: true
+    tags:
+      example: crossplane-example-ec2
+    userData: ""
+  providerConfigRef:
+    name: example-provider
+  writeConnectionSecretToRef:
+    name: ec2-connection-secret
+    namespace: crossplane
