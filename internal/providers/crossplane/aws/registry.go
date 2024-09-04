@@ -86,7 +86,7 @@ var ResourceRegistry []*schema.RegistryItem = []*schema.RegistryItem{
 	// getS3BucketAnalyticsConfigurationRegistryItem(),
 	// getS3BucketInventoryRegistryItem(),
 	// getS3BucketLifecycleConfigurationRegistryItem(),
-	// getS3BucketRegistryItem(),
+	getS3BucketRegistryItem(),
 	// getS3BucketVersioningRegistryItem(),
 	// getSecretsManagerSecret(),
 	// getSSMActivationRegistryItem(),
