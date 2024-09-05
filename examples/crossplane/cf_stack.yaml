@@ -1,0 +1,46 @@
+apiVersion: cloudformation.aws.upbound.io/v1beta1
+kind: Stack
+metadata:
+  name: crossplane-example-ec2-stack
+spec:
+  forProvider:
+    region: us-east-1
+    templateBody: |
+      {
+        "Resources": {
+          "EC2Instance": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+              "InstanceType": "t3.micro",
+              "ImageId": "ami-1234",
+              "Monitoring": false,
+              "SubnetId": "subnet-1234",
+              "SecurityGroupIds": [
+                "sg-1234"
+              ],
+              "BlockDeviceMappings": [
+                {
+                  "DeviceName": "/dev/xvda",
+                  "Ebs": {
+                    "VolumeSize": 30,
+                    "VolumeType": "gp2",
+                    "DeleteOnTermination": true
+                  }
+                }
+              ],
+              "Tags": [
+                {
+                  "Key": "example",
+                  "Value": "crossplane-example-ec2"
+                }
+              ],
+              "UserData": ""
+            }
+          }
+        }
+      }
+  providerConfigRef:
+    name: example-provider
+  writeConnectionSecretToRef:
+    name: ec2-connection-secret
+    namespace: crossplane
