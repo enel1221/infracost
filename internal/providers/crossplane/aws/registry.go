@@ -11,7 +11,7 @@ var ResourceRegistry []*schema.RegistryItem = []*schema.RegistryItem{
 	// getACMCertificate(),
 	// getACMPCACertificateAuthorityRegistryItem(),
 	// getBackupVaultRegistryItem(),
-	// getCloudFormationStackRegistryItem(),
+	getCloudFormationStackRegistryItem(),
 	// getCloudFormationStackSetRegistryItem(),
 	// getCloudfrontDistributionRegistryItem(),
 	// getCloudtrailRegistryItem(),
