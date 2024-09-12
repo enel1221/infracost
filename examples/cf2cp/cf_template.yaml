@@ -1,0 +1,19 @@
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: my-s3-bucket
+      Region: us-west-2
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      Region: us-west-2
+      InstanceType: t2.micro
+      ImageId: ami-12345678
+  MyRDSCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      DBClusterIdentifier: my-db-cluster
+      Engine: aurora
+      MasterUsername: admin
+      MasterUserPassword: secretpassword
